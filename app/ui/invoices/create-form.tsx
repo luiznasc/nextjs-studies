@@ -135,6 +135,13 @@ export default function Form({ customers }: { customers: CustomerField[] }) {
             </div>
           </div>
         </fieldset>
+        <div id="customer-error" aria-live="polite" aria-atomic="true">
+          {state.errors && (
+            <p className="mt-2 text-sm text-red-500">
+              {/* <div>Missing Fields. Failed to Create Invoice.</div> */}
+            </p>
+          )}
+        </div>
       </div>
       <div className="mt-6 flex justify-end gap-4">
         <Link

@@ -10,7 +10,7 @@ import {
 import Link from "next/link";
 import { Button } from "@/app/ui/button";
 import { updateInvoice } from "@/app/lib/actions";
-import { useFormState } from "react-dom";
+import { useFormState, useFormStatus } from "react-dom";
 
 export default function EditInvoiceForm({
   invoice,
@@ -141,12 +141,14 @@ export default function EditInvoiceForm({
                 ))}
             </div>
           </div>
+          <div id="customer-error" aria-live="polite" aria-atomic="true">
+            {state.errors && (
+              <p className="mt-2 text-sm text-red-500">
+                {/* Missing Fields. Failed to Edit Invoice. */}
+              </p>
+            )}
+          </div>
         </fieldset>
-        <div id="customer-error" aria-live="polite" aria-atomic="true">
-          <p className="mt-2 text-sm text-red-500">
-            Missing Fields. Failed to Edit Invoice.
-          </p>
-        </div>
       </div>
       <div className="mt-6 flex justify-end gap-4">
         <Link
